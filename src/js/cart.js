@@ -5,15 +5,16 @@ function renderCartContents() {
 
   // code to ensure that  cartItems is an array
   if (!Array.isArray(cartItems)) {
-      console.warn("cartItems was a single object, converting to array:", cartItems);
-      cartItems = [cartItems]; // if not wrap it in an array (by pass)
+    console.warn(
+      "cartItems was a single object, converting to array:",
+      cartItems,
+    );
+    cartItems = [cartItems]; // if not wrap it in an array (by pass)
   }
 
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
-
-
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
