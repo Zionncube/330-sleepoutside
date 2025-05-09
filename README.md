@@ -25,5 +25,13 @@ _BYU-Pathway Worldwide improves lives through access to spiritually based, onlin
 
 https:/go.microsoft.com/fwlink/?LinkID=135170
 
+function renderCartContents() {
+  const cartItems = getLocalStorage("so-cart");
+  const htmlItems = cartItems.map((item) => cartItemTemplate(item));
+  console.log(cartItems);
+
+  document.querySelector(".product-list").innerHTML = htmlItems.join("");
+}
+
 
 
