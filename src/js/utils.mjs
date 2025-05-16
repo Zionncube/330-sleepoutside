@@ -30,3 +30,14 @@ export function getParam(param) {
   return product
 }
 
+//this code define the function and it parametre 
+export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
+  const htmlStrings = list.map(template);// with templte function use the map methord to the templete fuction of each item
+  // checking if clear is true
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));//positioning
+}
+
+
