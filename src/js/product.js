@@ -27,4 +27,28 @@ document
   .getElementById("addToCart")
   .addEventListener("click", addToCartHandler);
 
+  export function  renderWithTemplete(templetee, parentElement, data, callback) {
+    parentElement.innerHTML = templetee;
+    if (callback){
+      callback(data);
+    }
+  }
+  
+  async function loadTemplete(path) {
+    const res =  await fetch(path);
+    const templete =  await res.text();
+    return templete;
+  }
+  
+  export async function LoadHeaderFooter() {
+    const headerTemplete = await loadTemplete("../partial/header.html");
+    const footerTemplete = await loadTemplete("../partial/footer.html");
+    
+    const headerElement = document.querySelector("main-header");
+    const footerElement = document.querySelector("main-footer");
+  
+    renderWithTemplete(headerTemplete, headerElement);
+    renderWithTemplete(footerTemplete, footerElement);
+  }
+
 

@@ -18,3 +18,6 @@ function updateCartCount() {
 
 productList.init();
 updateCartCount();
+
+import { LoadHeaderFooter } from "./utils.mjs";
+LoadHeaderFooter(); 

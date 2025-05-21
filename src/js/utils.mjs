@@ -32,12 +32,36 @@ export function getParam(param) {
 
 //this code define the function and it parametre 
 export function renderListWithTemplate(template, parentElement, list, position = "afterbegin", clear = false) {
-  const htmlStrings = list.map(template);// with templte function use the map methord to the templete fuction of each item
+  const htmlstrings = list.template(template);// with templte function use the map methord to the templete fuction of each item
   // checking if clear is true
   if (clear) {
     parentElement.innerHTML = "";
   }
   parentElement.insertAdjacentHTML(position, htmlStrings.join(""));//positioning
+}
+
+export function  renderWithTemplete(templetee, parentElement, data, callback) {
+  parentElement.innerHTML = templetee;
+  if (callback){
+    callback(data);
+  }
+}
+
+async function loadTemplete(path) {
+  const res =  await fetch(path);
+  const templete =  await res.text();
+  return templete;
+}
+
+export async function LoadHeaderFooter() {
+  const headerTemplete = await loadTemplete("../partial/header.html");
+  const footerTemplete = await loadTemplete("../partial/footer.html");
+  
+  const headerElement = document.querySelector("main-header");
+  const footerElement = document.querySelector("main-footer");
+
+  renderWithTemplete(headerTemplete, headerElement);
+  renderWithTemplete(footerTemplete, footerElement);
 }
 
 
