@@ -10,12 +10,9 @@
   <body>
     <header class="divider" id="main-header"></header>
     <main class="divider">
-      <div class="hero">
-        <img
-          src="/images/banner-sm.jpg"
-          srcset="images/banner-sm.jpg 500w, images/banner.jpg"
-          alt="image of a high mountain lake"
-        />
+        <header><h1 id="category-title">Loading...</h1></header>
+        <input type="text" id="searchInput" placeholder="Search Products...">
+        <ul class="product-list"></ul>
         <div class="logo logo--square">
           <img src="/images/noun_Tent_2517.svg" alt="tent image for logo" />
           <div>Sleep<span class="highlight">Outside</span></div>
@@ -27,13 +24,6 @@
           </p>
         </div>
       </div>
-
-      <a href="product_listing/index.html?category=tents">
-        <img src="images/tents.jpg" alt="Tents">
-      </a>
-      <a href="product_listing/index.html?category=sleeping-bags">
-        <img src="images/sleeping-bags.jpg" alt="Sleeping Bags">
-      </a>      
 
       <section class="products">
         <h2>Top Products</h2>
@@ -86,5 +76,6 @@
       </section>
     </main>
     <footer id="main-footer"></footer>
+    <script type="module" src="/js/productListing.js"></script>
   </body>
 </html>
