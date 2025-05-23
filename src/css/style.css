@@ -60,6 +60,23 @@ p {
   color: var(--font-body);
 }
 
+.search-section {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+#productSearch {
+  padding: 0.5rem;
+  width: 60%;
+  max-width: 400px;
+}
+
+#searchBtn {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+}
+
+
 /* cart count eddited by happiness*/
 .cart-cout {
   position:absolute;
