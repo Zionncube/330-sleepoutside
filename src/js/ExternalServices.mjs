@@ -9,3 +9,6 @@ async function convertToJson(res) {
     }
   }
   
+const jsonResponse = await response.json();
+throw { name: 'servicesError', message: jsonResponse };
+  
