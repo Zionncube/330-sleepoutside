@@ -30,3 +30,14 @@ export function getParam(param) {
   return product
 }
 
+// Displays an alert message at the top of the main element
+export function alertMessage(message, scroll = true) {
+  const main = document.querySelector('main'); // Get the main element
+  const alert = document.createElement('div'); // Create a new div for the alert
+  alert.classList.add('alert'); // Add a class for styling
+  alert.innerHTML = `<p>${message}</p>`; // Set the alert message
+  main.prepend(alert); // Insert the alert at the top of the main element
+  if (scroll) {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top if needed
+  }
+}
