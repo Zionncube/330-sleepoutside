@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daily Scheduler – I AM: Becoming</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="I AM: Becoming Logo"/>
+      <h1>I AM: <span>Becoming</span></h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="journal.html">Journal</a></li>
+        <li><a href="progress.html">Progress</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="scheduler.html" class="active">Scheduler</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="scheduler-page">
+    <h2>Daily Intention Scheduler</h2>
+    <form id="scheduleForm">
+      <div class="time-block">
+        <label for="morning">🌅 Morning Intentions</label>
+        <textarea id="morning" placeholder="Meditation, prayer, exercise, etc."></textarea>
+      </div>
+      <div class="time-block">
+        <label for="afternoon">🌞 Afternoon Focus</label>
+        <textarea id="afternoon" placeholder="Work, study, creativity, etc."></textarea>
+      </div>
+      <div class="time-block">
+        <label for="evening">🌙 Evening Reflection</label>
+        <textarea id="evening" placeholder="Gratitude, journal, rest, etc."></textarea>
+      </div>
+      <button type="submit">Save Schedule</button>
+    </form>
+    <p class="status" id="statusMessage"></p>
+  </main>
+
+  <footer>
+    <p>&copy; <span id="year"></span> I AM: Becoming. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Set footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const morningInput = document.getElementById("morning");
+    const afternoonInput = document.getElementById("afternoon");
+    const eveningInput = document.getElementById("evening");
+    const form = document.getElementById("scheduleForm");
+    const statusMessage = document.getElementById("statusMessage");
+
+    // Load from localStorage
+    function loadSchedule() {
+      morningInput.value = localStorage.getItem("schedule_morning") || "";
+      afternoonInput.value = localStorage.getItem("schedule_afternoon") || "";
+      eveningInput.value = localStorage.getItem("schedule_evening") || "";
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      localStorage.setItem("schedule_morning", morningInput.value);
+      localStorage.setItem("schedule_afternoon", afternoonInput.value);
+      localStorage.setItem("schedule_evening", eveningInput.value);
+      statusMessage.textContent = "✅ Schedule saved successfully!";
+      setTimeout(() => statusMessage.textContent = "", 3000);
+    });
+
+    loadSchedule();
+  </script>
+
+</body>
+</html>
