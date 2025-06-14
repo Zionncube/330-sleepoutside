@@ -44,6 +44,19 @@
     <p class="status" id="statusMessage"></p>
   </main>
 
+  <section id="scheduler">
+    <h2>🗓️ Schedule Your Becoming</h2>
+    <form id="taskForm">
+      <input type="text" id="taskTitle" placeholder="Affirmation or Task..." required>
+      <input type="date" id="taskDate" required>
+      <button type="submit">Add Task</button>
+    </form>
+  
+    <h3>📅 Today's Tasks</h3>
+    <ul id="todayTasks"></ul>
+  </section>
+  
+
   <footer>
     <p>&copy; <span id="year"></span> I AM: Becoming. All rights reserved.</p>
   </footer>
@@ -76,6 +89,7 @@
 
     loadSchedule();
   </script>
+
 
 </body>
 </html>

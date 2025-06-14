@@ -61,6 +61,19 @@
       </div>
     </section>
 
+    <section id="verse-section" class="section">
+      <h2>🕊️ Daily Scripture</h2>
+      <p id="verseDisplay">Loading verse...</p>
+      <input type="text" id="verseInput" placeholder="e.g. Romans 8:28">
+      <button onclick="fetchVerse()">🔍 Get Verse</button>
+    </section>
+    
+    
+    <label for="journalInput">🎙️ Journal Your Thoughts</label>
+    <textarea id="journalInput" rows="5" placeholder="Start typing or use your voice..."></textarea>
+    <button onclick="startDictation()">🎤 Speak</button>
+
+
     <section id="join" class="join">
       <h2>Step Into Mastery</h2>
       <p>Start your spiritual self-mastery practice today. The kingdom is within you.</p>
@@ -75,6 +88,10 @@
   <script>
     // Dynamic copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    fetchVerse(); // Call this on load
   </script>
 </body>
 </html>

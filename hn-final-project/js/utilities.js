@@ -138,3 +138,31 @@ function addAffirmation(text, tags = []) {
     return getData("affirmations");
   }
 
+  document.getElementById("taskForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const title = document.getElementById("taskTitle").value;
+    const date = document.getElementById("taskDate").value;
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.push({ title, date });
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    this.reset();
+    loadTodayTasks();
+  });
+  
+  function loadTodayTasks() {
+    const today = new Date().toISOString().split("T")[0];
+    const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    const todayTasks = tasks.filter(task => task.date === today);
+    const list = document.getElementById("todayTasks");
+    list.innerHTML = "";
+    todayTasks.forEach(task => {
+      const li = document.createElement("li");
+      li.textContent = task.title;
+      list.appendChild(li);
+    });
+  }
+  
+  // Load tasks on page load
+  window.addEventListener("DOMContentLoaded", loadTodayTasks);
+  
+
