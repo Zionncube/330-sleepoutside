@@ -172,3 +172,582 @@
   }
 
   /* still needs the index styling and goal styling*/
+
+  .goals-page {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .goals-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .goals-form input, .goals-form select {
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  .goals-form button {
+    background-color: #5a189a;
+    color: white;
+    border: none;
+    padding: 0.7rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .goals-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  .goal-item {
+    background: #eee;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+  }
+  /* ========== BASE RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  background: #f9f9f9;
+  color: #222;
+}
+
+/* ========== COLORS ========== */
+:root {
+  --scarlet: #C1121F;
+  --purple: #5a189a;
+  --blue: #1d3557;
+  --violet: #6a4c93;
+  --light-bg: #f4f4f4;
+  --white: #ffffff;
+}
+
+/* ========== HEADER ========== */
+header {
+  background: linear-gradient(to right, var(--purple), var(--blue));
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.logo h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+}
+
+.logo span {
+  color: var(--scarlet);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--scarlet);
+}
+
+/* ========== HERO SECTION ========== */
+.hero {
+  background: linear-gradient(to top, var(--violet), var(--purple));
+  color: white;
+  padding: 4rem 2rem;
+  text-align: center;
+  display: grid;
+  place-items: center;
+}
+
+.hero-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  background: var(--scarlet);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: var(--blue);
+}
+
+/* ========== SECTION STYLING ========== */
+.section,
+.about,
+.features,
+.join {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.about p,
+.features p,
+.join p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+/* ========== AFFIRMATION SECTION ========== */
+#affirmation-section {
+  background: var(--light-bg);
+}
+
+#affirmationText {
+  font-size: 1.2rem;
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+#affirmation-section button {
+  background: var(--violet);
+  border: none;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+/* ========== FEATURES GRID ========== */
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background: var(--blue);
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h2 {
+    font-size: 2rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
+  }
+}
+
+/* ========== ABOUT PAGE ========== */
+.about-page {
+  padding: 3rem 2rem;
+  background: #fff;
+  color: #333;
+}
+
+.about-page section {
+  max-width: 800px;
+  margin: 0 auto 3rem auto;
+  text-align: center;
+}
+
+.about-page h2,
+.about-page h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--violet);
+  margin-bottom: 1rem;
+}
+
+.about-page p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+
+.about-page ul {
+  list-style: none;
+  padding: 0;
+}
+
+.about-page ul li {
+  background: #f3f3f3;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  border-left: 5px solid var(--scarlet);
+  text-align: left;
+}
+
+/* ========== SYMBOLS SECTION ========== */
+.symbols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.symbols div {
+  background: #fafafa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.symbols div:hover {
+  transform: translateY(-5px);
+}
+
+.symbols img {
+  width: 60px;
+  height: auto;
+  margin-bottom: 0.5rem;
+}
+
+.symbols p {
+  font-size: 1rem;
+}
+
+/* Highlight palette description */
+.about-page .values span,
+.about-page .symbolism span {
+  font-weight: bold;
+  display: inline-block;
+  margin: 0 4px;
+}
+
+/* ========== JOURNAL PAGE ========== */
+.journal-page {
+  padding: 3rem 2rem;
+  background: #fff;
+  color: #222;
+}
+
+.journal-page .intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.journal-page h2, .journal-page h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--violet);
+}
+
+#verse-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#verse-section p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #555;
+}
+
+#verseInput {
+  padding: 0.6rem;
+  margin-top: 0.5rem;
+  width: 60%;
+  max-width: 400px;
+}
+
+#verse-section button {
+  margin-left: 0.5rem;
+  padding: 0.6rem 1rem;
+  background-color: var(--scarlet);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.journal-entry {
+  max-width: 700px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+#journalInput {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  border: 2px solid var(--violet);
+  border-radius: 8px;
+}
+
+.journal-entry button {
+  background-color: var(--violet);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.journal-history {
+  margin: 2rem auto;
+  padding: 1rem;
+  background-color: #f9f8ff;
+  border-radius: 10px;
+  max-width: 700px;
+}
+
+.journal-history h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  color: #4B0082;
+}
+
+#journalList li {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #fff;
+  border-left: 5px solid #4B0082;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.scheduler-page {
+  max-width: 700px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.scheduler-page h2,
+#scheduler h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: #4B0082;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.time-block {
+  margin-bottom: 1.2rem;
+}
+
+.time-block label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.time-block textarea {
+  width: 100%;
+  height: 100px;
+  padding: 0.75rem;
+  font-family: 'Montserrat', sans-serif;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+button {
+  background-color: #4B0082;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  margin-top: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #36005f;
+}
+
+.status {
+  color: green;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+#taskForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+#taskForm input {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#todayTasks {
+  max-width: 600px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+#todayTasks li {
+  background: #f9f9ff;
+  border-left: 5px solid #4B0082;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.progress-page {
+  padding: 2rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.stats h2,
+.calendar h2 {
+  font-family: 'Playfair Display', serif;
+  color: #4B0082;
+  text-align: center;
+}
+
+.progress-metrics {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.metric-box {
+  flex: 1 1 250px;
+  padding: 1rem;
+  background: #fafafa;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.metric-box h3 {
+  margin-top: 0;
+  color: #512da8;
+}
+
+.metric-box p,
+.metric-box blockquote {
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+}
+
+.calendar {
+  margin-top: 3rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-top: 1rem;
+}
+
+.calendar-day {
+  width: 100%;
+  padding-top: 100%;
+  position: relative;
+  background: #eee;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.calendar-day::after {
+  content: attr(data-day);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.8rem;
+  color: #333;
+}
+
+.charts {
+  margin-top: 3rem;
+  padding: 1rem;
+  background-color: #f4f4f9;
+  border-radius: 12px;
+}
+
+.chart-container {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.1);
+}
+
+.chart-container h3 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  color: #4B0082;
+}
+

@@ -4,21 +4,23 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Goals – I AM: Becoming</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header>
     <div class="logo">
-      <img src="images/logo.png" alt="I AM: Becoming Logo">
+      <img src="images/logo.png" alt="I AM: Becoming Logo" />
       <h1>I AM: <span>Becoming</span></h1>
     </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="journal.html">Journal</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="journal.html">Journaling</a></li>
+        <li><a href="scheduler.html">Scheduler</a></li>
         <li><a href="progress.html">Progress</a></li>
-        <li><a href="goals.html" class="active">Goals</a></li>
       </ul>
     </nav>
   </header>
@@ -50,52 +52,11 @@
     <p>&copy; <span id="year"></span> I AM: Becoming. All rights reserved.</p>
   </footer>
 
+  <!-- ✅ External Scripts -->
+  <script src="js/utilities.js"></script>
+  <script src="js/goals.js"></script>
   <script>
-    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    const form = document.getElementById('goalForm');
-    const goalText = document.getElementById('goalText');
-    const goalCategory = document.getElementById('goalCategory');
-    const goalDeadline = document.getElementById('goalDeadline');
-    const goalList = document.getElementById('goalItems');
-
-    let goals = JSON.parse(localStorage.getItem('goals') || '[]');
-
-    function renderGoals() {
-      goalList.innerHTML = '';
-      goals.forEach((goal, index) => {
-        const li = document.createElement('li');
-        li.className = 'goal-item';
-        li.innerHTML = `
-          <span><strong>${goal.category}:</strong> ${goal.text} (by ${goal.deadline})</span>
-          <button onclick="completeGoal(${index})">✓</button>
-        `;
-        goalList.appendChild(li);
-      });
-    }
-
-    function completeGoal(index) {
-      goals.splice(index, 1);
-      localStorage.setItem('goals', JSON.stringify(goals));
-      renderGoals();
-    }
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      const newGoal = {
-        text: goalText.value.trim(),
-        category: goalCategory.value,
-        deadline: goalDeadline.value
-      };
-      goals.push(newGoal);
-      localStorage.setItem('goals', JSON.stringify(goals));
-      renderGoals();
-      form.reset();
-    });
-
-    renderGoals();
-    
   </script>
 </body>
 </html>

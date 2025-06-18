@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Progress – I AM: Becoming</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="css/styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -17,8 +17,11 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="journal.html">Journal</a></li>
-        <li><a href="progress.html" class="active">Progress</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="journal.html">Journaling</a></li>
+        <li><a href="scheduler.html">Scheduler</a></li>
+        <li><a href="progress.html">Progress</a></li>
       </ul>
     </nav>
   </header>
@@ -49,10 +52,21 @@
       </div>
     </section>
 
-    <section class="section">
-      <h2>📊 Progress Dashboard</h2>
-      <canvas id="emotionChart" width="400" height="200"></canvas>
-      <canvas id="goalChart" width="400" height="200" style="margin-top: 2rem;"></canvas>
+    <section class="charts">
+      <h2>Your Writing Consistency</h2>
+      <div class="chart-container">
+        <h3>🗓️ Weekly Progress</h3>
+        <canvas id="weeklyChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>📆 Monthly Progress</h3>
+        <canvas id="monthlyChart"></canvas>
+      </div>
+      <div class="chart-container">
+        <h3>📈 Journal vs Affirmations (7 Days)</h3>
+        <canvas id="comparisonChart"></canvas>
+      </div>
+      
     </section>
     
   </main>
@@ -61,56 +75,7 @@
     <p>&copy; <span id="year"></span> I AM: Becoming. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Footer year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Load journal entries
-    const entries = JSON.parse(localStorage.getItem("journalEntries") || "[]");
-    const totalEntries = entries.length;
-    document.getElementById("total-entries").textContent = totalEntries;
-
-    if (entries.length > 0) {
-      const latest = entries[entries.length - 1];
-      document.getElementById("last-entry").textContent = latest.date;
-    }
-
-    // Random affirmations
-    const affirmations = [
-      "I am becoming all I was designed to be.",
-      "My inner world creates my outer world.",
-      "Each thought is a seed of power.",
-      "I am in control of my mind and emotions.",
-      "My calm is my strength."
-    ];
-    const randomAff = affirmations[Math.floor(Math.random() * affirmations.length)];
-    document.getElementById("affirmation").textContent = `“${randomAff}”`;
-
-    // Simple calendar visual
-    const calendar = document.getElementById("calendar-grid");
-    const dates = {};
-    entries.forEach(e => {
-      const d = new Date(e.date).toDateString();
-      dates[d] = (dates[d] || 0) + 1;
-    });
-
-    const today = new Date();
-    for (let i = 29; i >= 0; i--) {
-      const date = new Date(today);
-      date.setDate(today.getDate() - i);
-      const dStr = date.toDateString();
-      const count = dates[dStr] || 0;
-      const box = document.createElement("div");
-      box.className = "calendar-day";
-      box.title = dStr;
-      box.style.background = count > 0 ? `rgba(108, 99, 255, ${Math.min(count, 4) / 4})` : "#eee";
-      box.textContent = date.getDate();
-      calendar.appendChild(box);
-    }
-  </script>
-
-  <style>
-    
-  </style>
+  <script src="js/progress.js"></script>
+  
 </body>
 </html>

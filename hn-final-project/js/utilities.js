@@ -164,5 +164,23 @@ function addAffirmation(text, tags = []) {
   
   // Load tasks on page load
   window.addEventListener("DOMContentLoaded", loadTodayTasks);
+
+// utilities.js
+async function fetchVerse() {
+  const verseDisplay = document.getElementById('verseDisplay');
+  const input = document.getElementById('verseInput').value.trim();
+  let reference = input || 'Romans 8:28'; // Default verse
+
+  try {
+    const response = await fetch(`https://bible-api.com/${encodeURIComponent(reference)}`);
+    if (!response.ok) throw new Error('Verse not found.');
+
+    const data = await response.json();
+    verseDisplay.textContent = `${data.reference}: \"${data.text.trim()}\"`;
+  } catch (error) {
+    verseDisplay.textContent = 'Error fetching verse. Please try another reference.';
+    console.error(error);
+  }
+}
   
 

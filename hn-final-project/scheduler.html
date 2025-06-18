@@ -4,7 +4,8 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Daily Scheduler – I AM: Becoming</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="css/styles.css"/>
+  <link rel="stylesheet" href="css/scheduler.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -16,10 +17,11 @@
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
-        <li><a href="journal.html">Journal</a></li>
-        <li><a href="progress.html">Progress</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="goals.html">Goals</a></li>
-        <li><a href="scheduler.html" class="active">Scheduler</a></li>
+        <li><a href="journal.html">Journaling</a></li>
+        <li><a href="scheduler.html">Scheduler</a></li>
+        <li><a href="progress.html">Progress</a></li>
       </ul>
     </nav>
   </header>
@@ -39,7 +41,7 @@
         <label for="evening">🌙 Evening Reflection</label>
         <textarea id="evening" placeholder="Gratitude, journal, rest, etc."></textarea>
       </div>
-      <button type="submit">Save Schedule</button>
+      <button type="submit">💾 Save Schedule</button>
     </form>
     <p class="status" id="statusMessage"></p>
   </main>
@@ -49,47 +51,17 @@
     <form id="taskForm">
       <input type="text" id="taskTitle" placeholder="Affirmation or Task..." required>
       <input type="date" id="taskDate" required>
-      <button type="submit">Add Task</button>
+      <button type="submit">➕ Add Task</button>
     </form>
   
     <h3>📅 Today's Tasks</h3>
     <ul id="todayTasks"></ul>
   </section>
-  
 
   <footer>
     <p>&copy; <span id="year"></span> I AM: Becoming. All rights reserved.</p>
   </footer>
 
-  <script>
-    // Set footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    const morningInput = document.getElementById("morning");
-    const afternoonInput = document.getElementById("afternoon");
-    const eveningInput = document.getElementById("evening");
-    const form = document.getElementById("scheduleForm");
-    const statusMessage = document.getElementById("statusMessage");
-
-    // Load from localStorage
-    function loadSchedule() {
-      morningInput.value = localStorage.getItem("schedule_morning") || "";
-      afternoonInput.value = localStorage.getItem("schedule_afternoon") || "";
-      eveningInput.value = localStorage.getItem("schedule_evening") || "";
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      localStorage.setItem("schedule_morning", morningInput.value);
-      localStorage.setItem("schedule_afternoon", afternoonInput.value);
-      localStorage.setItem("schedule_evening", eveningInput.value);
-      statusMessage.textContent = "✅ Schedule saved successfully!";
-      setTimeout(() => statusMessage.textContent = "", 3000);
-    });
-
-    loadSchedule();
-  </script>
-
-
+  <script src="js/scheduler.js"></script>
 </body>
 </html>
